@@ -1,0 +1,127 @@
+INSERT INTO`numbers`(`id`, `number`, `sectionId`) VALUES(NULL, '3', '2'), (NULL, '2', '2'), (NULL, '3', '2'), (NULL, '4', '2'), (NULL, '5', '2'), (NULL, '6', '2'), (NULL, '7', '2'), (NULL, '22', '2');
+
+INSERT INTO`numbers`(`id`, `number`, `sectionId`) VALUES(NULL, '1', '3'), (NULL, '2', '3'), (NULL, '3', '3'), (NULL, '4', '3'), (NULL, '5', '3');
+
+INSERT INTO`numbers`(`id`, `number`, `sectionId`) VALUES(NULL, '1', '2'), (NULL, '2', '2'), (NULL, '3', '2'), (NULL, '4', '2'), (NULL, '5', '2'), (NULL, '6', '2'), (NULL, '7', '2');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// prensas
+
+INSERT INTO`numbers`(`id`, `number`, `sectionId`) VALUES(NULL, '31', '19'), (NULL, '32', '19'), (NULL, '33', '19'), (NULL, '34', '19');
+
+//esm
+INSERT INTO`numbers`(`id`, `number`, `sectionId`) VALUES(NULL, '31', '20'), (NULL, '32', '20'), (NULL, '33', '20'), (NULL, '34', '20');
+
+//hornos
+INSERT INTO`numbers`(`id`, `number`, `sectionId`) VALUES(NULL, '31', '21'), (NULL, '32', '21'), (NULL, '33', '21'), (NULL, '34', '21')
+
+//clasi
+INSERT INTO`numbers`(`id`, `number`, `sectionId`) VALUES(NULL, '31', '22'), (NULL, '32', '22'), (NULL, '33', '22'), (NULL, '34', '22');
+
+// parque box
+INSERT INTO`numbers`(`id`, `number`, `sectionId`) VALUES(NULL, '1', '23');
+
+//tierras
+INSERT INTO`numbers`(`id`, `number`, `sectionId`) VALUES(NULL, '1', '24');
+
+// almacén
+INSERT INTO`numbers`(`id`, `number`, `sectionId`) VALUES(NULL, '1', '25');
+
+// taller
+INSERT INTO`numbers`(`id`, `number`, `sectionId`) VALUES(NULL, '1', '26');
+
+// otros
+INSERT INTO`numbers`(`id`, `number`, `sectionId`) VALUES(NULL, '1', '27');
+
+
+
+
+// maquinas prensas
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Filtros', '61'), (NULL, 'Tierras', '61'), (NULL, 'Prensa', '61'), (NULL, 'Acarri. OUT PH', '61'), (NULL, 'Acarri. IN Secadero', '61'), (NULL, 'Secadero', '61'), (NULL, 'Acarri. OUT Sec.', '61'), (NULL, 'Otros', '61');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Filtros', '62'), (NULL, 'Tierras', '62'), (NULL, 'Prensa', '62'), (NULL, 'Acarri. OUT PH', '62'), (NULL, 'Acarri. IN Secadero', '62'), (NULL, 'Secadero', '62'), (NULL, 'Acarri. OUT Sec.', '62'), (NULL, 'Otros', '62');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Filtros', '63'), (NULL, 'Tierras', '63'), (NULL, 'Prensa', '63'), (NULL, 'Acarri. OUT PH', '63'), (NULL, 'Acarri. IN Secadero', '63'), (NULL, 'Secadero', '63'), (NULL, 'Acarri. OUT Sec.', '63'), (NULL, 'Otros', '63');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Filtros', '64'), (NULL, 'Tierras', '64'), (NULL, 'Prensa', '64'), (NULL, 'Acarri. OUT PH', '64'), (NULL, 'Acarri. IN Secadero', '64'), (NULL, 'Secadero', '64'), (NULL, 'Acarri. OUT Sec.', '64'), (NULL, 'Otros', '64');
+
+// maquinas esmalt
+
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Colores', '8'), (NULL, 'Línea', '8'), (NULL, 'Zona Esmalt.', '8'), (NULL, 'Inkjet', '8'), (NULL, 'Máq. Carga', '8'), (NULL, 'Qualitron', '8'), (NULL, 'Fregador agua', '8'), (NULL, 'Fregador seco', '8'), (NULL, 'Fregador franela', '8'), (NULL, 'Girador', '8'), (NULL, 'Otros', '8');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Colores', '9'), (NULL, 'Línea', '9'), (NULL, 'Zona Esmalt.', '9'), (NULL, 'Inkjet', '9'), (NULL, 'Máq. Carga', '9'), (NULL, 'Qualitron', '9'), (NULL, 'Fregador agua', '9'), (NULL, 'Fregador seco', '9'), (NULL, 'Fregador franela', '9'), (NULL, 'Girador', '9'), (NULL, 'Otros', '9');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Colores', '10'), (NULL, 'Línea', '10'), (NULL, 'Zona Esmalt.', '10'), (NULL, 'Inkjet', '10'), (NULL, 'Máq. Carga', '10'), (NULL, 'Qualitron', '10'), (NULL, 'Fregador agua', '10'), (NULL, 'Fregador seco', '10'), (NULL, 'Fregador franela', '10'), (NULL, 'Girador', '10'), (NULL, 'Otros', '10');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Colores', '11'), (NULL, 'Línea', '11'), (NULL, 'Zona Esmalt.', '11'), (NULL, 'Inkjet', '11'), (NULL, 'Máq. Carga', '11'), (NULL, 'Qualitron', '11'), (NULL, 'Fregador agua', '11'), (NULL, 'Fregador seco', '11'), (NULL, 'Fregador franela', '11'), (NULL, 'Girador', '11'), (NULL, 'Otros', '11');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Colores', '12'), (NULL, 'Línea', '12'), (NULL, 'Zona Esmalt.', '12'), (NULL, 'Inkjet', '12'), (NULL, 'Máq. Carga', '12'), (NULL, 'Qualitron', '12'), (NULL, 'Fregador agua', '12'), (NULL, 'Fregador seco', '12'), (NULL, 'Fregador franela', '12'), (NULL, 'Girador', '12'), (NULL, 'Otros', '12');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Colores', '13'), (NULL, 'Línea', '13'), (NULL, 'Zona Esmalt.', '13'), (NULL, 'Inkjet', '13'), (NULL, 'Máq. Carga', '13'), (NULL, 'Qualitron', '13'), (NULL, 'Fregador agua', '13'), (NULL, 'Fregador seco', '13'), (NULL, 'Fregador franela', '13'), (NULL, 'Girador', '13'), (NULL, 'Otros', '13');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Colores', '14'), (NULL, 'Línea', '14'), (NULL, 'Zona Esmalt.', '14'), (NULL, 'Inkjet', '14'), (NULL, 'Máq. Carga', '14'), (NULL, 'Qualitron', '14'), (NULL, 'Fregador agua', '14'), (NULL, 'Fregador seco', '14'), (NULL, 'Fregador franela', '14'), (NULL, 'Girador', '14'), (NULL, 'Otros', '14');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Colores', '15'), (NULL, 'Línea', '15'), (NULL, 'Zona Esmalt.', '15'), (NULL, 'Inkjet', '15'), (NULL, 'Máq. Carga', '15'), (NULL, 'Qualitron', '15'), (NULL, 'Fregador agua', '15'), (NULL, 'Fregador seco', '15'), (NULL, 'Fregador franela', '15'), (NULL, 'Girador', '15'), (NULL, 'Otros', '15');
+
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Colores', '38'), (NULL, 'Línea', '38'), (NULL, 'Zona Esmalt.', '38'), (NULL, 'Inkjet', '38'), (NULL, 'Máq. Carga', '38'), (NULL, 'Qualitron', '38'), (NULL, 'Fregador agua', '38'), (NULL, 'Fregador seco', '38'), (NULL, 'Fregador franela', '38'), (NULL, 'Girador', '38'), (NULL, 'Otros', '38');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Colores', '39'), (NULL, 'Línea', '39'), (NULL, 'Zona Esmalt.', '39'), (NULL, 'Inkjet', '39'), (NULL, 'Máq. Carga', '39'), (NULL, 'Qualitron', '39'), (NULL, 'Fregador agua', '39'), (NULL, 'Fregador seco', '39'), (NULL, 'Fregador franela', '39'), (NULL, 'Girador', '39'), (NULL, 'Otros', '39');
+
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Colores', '65'), (NULL, 'Línea', '65'), (NULL, 'Zona Esmalt.', '65'), (NULL, 'Inkjet', '65'), (NULL, 'Máq. Carga', '65'), (NULL, 'Qualitron', '65'), (NULL, 'Fregador agua', '65'), (NULL, 'Fregador seco', '65'), (NULL, 'Fregador franela', '65'), (NULL, 'Girador', '65'), (NULL, 'Otros', '65');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Colores', '66'), (NULL, 'Línea', '66'), (NULL, 'Zona Esmalt.', '66'), (NULL, 'Inkjet', '66'), (NULL, 'Máq. Carga', '66'), (NULL, 'Qualitron', '66'), (NULL, 'Fregador agua', '66'), (NULL, 'Fregador seco', '66'), (NULL, 'Fregador franela', '66'), (NULL, 'Girador', '66'), (NULL, 'Otros', '66');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Colores', '67'), (NULL, 'Línea', '67'), (NULL, 'Zona Esmalt.', '67'), (NULL, 'Inkjet', '67'), (NULL, 'Máq. Carga', '67'), (NULL, 'Qualitron', '67'), (NULL, 'Fregador agua', '67'), (NULL, 'Fregador seco', '67'), (NULL, 'Fregador franela', '67'), (NULL, 'Girador', '67'), (NULL, 'Otros', '67');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Colores', '68'), (NULL, 'Línea', '68'), (NULL, 'Zona Esmalt.', '68'), (NULL, 'Inkjet', '68'), (NULL, 'Máq. Carga', '68'), (NULL, 'Qualitron', '68'), (NULL, 'Fregador agua', '68'), (NULL, 'Fregador seco', '68'), (NULL, 'Fregador franela', '68'), (NULL, 'Girador', '68'), (NULL, 'Otros', '68');
+
+
+
+// Hornos
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Máq. Descarga', '16'), (NULL, 'Transporte', '16'), (NULL, 'Mesa Entrada', '16'), (NULL, 'Movimentación', '16'), (NULL, 'Combustión', '16'), (NULL, 'Quemadores', '16'), (NULL, 'Turbinas', '16'), (NULL, 'Máq. Lim. Rod.', '16');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Máq. Descarga', '17'), (NULL, 'Transporte', '17'), (NULL, 'Mesa Entrada', '17'), (NULL, 'Movimentación', '17'), (NULL, 'Combustión', '17'), (NULL, 'Quemadores', '17'), (NULL, 'Turbinas', '17'), (NULL, 'Máq. Lim. Rod.', '17');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Máq. Descarga', '18'), (NULL, 'Transporte', '18'), (NULL, 'Mesa Entrada', '18'), (NULL, 'Movimentación', '18'), (NULL, 'Combustión', '18'), (NULL, 'Quemadores', '18'), (NULL, 'Turbinas', '18'), (NULL, 'Máq. Lim. Rod.', '18');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Máq. Descarga', '19'), (NULL, 'Transporte', '19'), (NULL, 'Mesa Entrada', '19'), (NULL, 'Movimentación', '19'), (NULL, 'Combustión', '19'), (NULL, 'Quemadores', '19'), (NULL, 'Turbinas', '19'), (NULL, 'Máq. Lim. Rod.', '19');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Máq. Descarga', '20'), (NULL, 'Transporte', '20'), (NULL, 'Mesa Entrada', '20'), (NULL, 'Movimentación', '20'), (NULL, 'Combustión', '20'), (NULL, 'Quemadores', '20'), (NULL, 'Turbinas', '20'), (NULL, 'Máq. Lim. Rod.', '20');
+
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Máq. Descarga', '46'), (NULL, 'Transporte', '46'), (NULL, 'Mesa Entrada', '46'), (NULL, 'Movimentación', '46'), (NULL, 'Combustión', '46'), (NULL, 'Quemadores', '46'), (NULL, 'Turbinas', '46'), (NULL, 'Máq. Lim. Rod.', '46');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Máq. Descarga', '47'), (NULL, 'Transporte', '47'), (NULL, 'Mesa Entrada', '47'), (NULL, 'Movimentación', '47'), (NULL, 'Combustión', '47'), (NULL, 'Quemadores', '47'), (NULL, 'Turbinas', '47'), (NULL, 'Máq. Lim. Rod.', '47');
+
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Máq. Descarga', '69'), (NULL, 'Transporte', '69'), (NULL, 'Mesa Entrada', '69'), (NULL, 'Movimentación', '69'), (NULL, 'Combustión', '69'), (NULL, 'Quemadores', '69'), (NULL, 'Turbinas', '69'), (NULL, 'Máq. Lim. Rod.', '69');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Máq. Descarga', '70'), (NULL, 'Transporte', '70'), (NULL, 'Mesa Entrada', '70'), (NULL, 'Movimentación', '70'), (NULL, 'Combustión', '70'), (NULL, 'Quemadores', '70'), (NULL, 'Turbinas', '70'), (NULL, 'Máq. Lim. Rod.', '70');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Máq. Descarga', '71'), (NULL, 'Transporte', '71'), (NULL, 'Mesa Entrada', '71'), (NULL, 'Movimentación', '71'), (NULL, 'Combustión', '71'), (NULL, 'Quemadores', '71'), (NULL, 'Turbinas', '71'), (NULL, 'Máq. Lim. Rod.', '71');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Máq. Descarga', '72'), (NULL, 'Transporte', '72'), (NULL, 'Mesa Entrada', '72'), (NULL, 'Movimentación', '72'), (NULL, 'Combustión', '72'), (NULL, 'Quemadores', '72'), (NULL, 'Turbinas', '72'), (NULL, 'Máq. Lim. Rod.', '72');
+
+// clasificacion
+
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Rodillera salida', '21'), (NULL, 'Rodillera emergencia', '21'), (NULL, 'Transporte', '21'), (NULL, 'Curva', '21'), (NULL, 'Cera', '21'), (NULL, 'Impresora', '21'), (NULL, 'Apilador', '21'), (NULL, 'Encajadora', '21'), (NULL, 'Cola', '21'), (NULL, 'Flejadora', '21'), (NULL, 'Paletizador', '21'), (NULL, 'Surface', '21');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Rodillera salida', '22'), (NULL, 'Rodillera emergencia', '22'), (NULL, 'Transporte', '22'), (NULL, 'Curva', '22'), (NULL, 'Cera', '22'), (NULL, 'Impresora', '22'), (NULL, 'Apilador', '22'), (NULL, 'Encajadora', '22'), (NULL, 'Cola', '22'), (NULL, 'Flejadora', '22'), (NULL, 'Paletizador', '22'), (NULL, 'Surface', '22');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Rodillera salida', '23'), (NULL, 'Rodillera emergencia', '23'), (NULL, 'Transporte', '23'), (NULL, 'Curva', '23'), (NULL, 'Cera', '23'), (NULL, 'Impresora', '23'), (NULL, 'Apilador', '23'), (NULL, 'Encajadora', '23'), (NULL, 'Cola', '23'), (NULL, 'Flejadora', '23'), (NULL, 'Paletizador', '23'), (NULL, 'Surface', '23');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Rodillera salida', '24'), (NULL, 'Rodillera emergencia', '24'), (NULL, 'Transporte', '24'), (NULL, 'Curva', '24'), (NULL, 'Cera', '24'), (NULL, 'Impresora', '24'), (NULL, 'Apilador', '24'), (NULL, 'Encajadora', '24'), (NULL, 'Cola', '24'), (NULL, 'Flejadora', '24'), (NULL, 'Paletizador', '24'), (NULL, 'Surface', '24');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Rodillera salida', '25'), (NULL, 'Rodillera emergencia', '25'), (NULL, 'Transporte', '25'), (NULL, 'Curva', '25'), (NULL, 'Cera', '25'), (NULL, 'Impresora', '25'), (NULL, 'Apilador', '25'), (NULL, 'Encajadora', '25'), (NULL, 'Cola', '25'), (NULL, 'Flejadora', '25'), (NULL, 'Paletizador', '25'), (NULL, 'Surface', '25');
+
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Rodillera salida', '51'), (NULL, 'Rodillera emergencia', '51'), (NULL, 'Transporte', '51'), (NULL, 'Curva', '51'), (NULL, 'Cera', '51'), (NULL, 'Impresora', '51'), (NULL, 'Apilador', '51'), (NULL, 'Encajadora', '51'), (NULL, 'Cola', '51'), (NULL, 'Flejadora', '51'), (NULL, 'Paletizador', '51'), (NULL, 'Surface', '51');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Rodillera salida', '52'), (NULL, 'Rodillera emergencia', '52'), (NULL, 'Transporte', '52'), (NULL, 'Curva', '52'), (NULL, 'Cera', '52'), (NULL, 'Impresora', '52'), (NULL, 'Apilador', '52'), (NULL, 'Encajadora', '52'), (NULL, 'Cola', '52'), (NULL, 'Flejadora', '52'), (NULL, 'Paletizador', '52'), (NULL, 'Surface', '52');
+
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Rodillera salida', '73'), (NULL, 'Rodillera emergencia', '73'), (NULL, 'Transporte', '73'), (NULL, 'Curva', '73'), (NULL, 'Cera', '73'), (NULL, 'Impresora', '73'), (NULL, 'Apilador', '73'), (NULL, 'Encajadora', '73'), (NULL, 'Cola', '73'), (NULL, 'Flejadora', '73'), (NULL, 'Paletizador', '73'), (NULL, 'Surface', '73');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Rodillera salida', '74'), (NULL, 'Rodillera emergencia', '74'), (NULL, 'Transporte', '74'), (NULL, 'Curva', '74'), (NULL, 'Cera', '74'), (NULL, 'Impresora', '74'), (NULL, 'Apilador', '74'), (NULL, 'Encajadora', '74'), (NULL, 'Cola', '74'), (NULL, 'Flejadora', '74'), (NULL, 'Paletizador', '74'), (NULL, 'Surface', '74');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Rodillera salida', '75'), (NULL, 'Rodillera emergencia', '75'), (NULL, 'Transporte', '75'), (NULL, 'Curva', '75'), (NULL, 'Cera', '75'), (NULL, 'Impresora', '75'), (NULL, 'Apilador', '75'), (NULL, 'Encajadora', '75'), (NULL, 'Cola', '75'), (NULL, 'Flejadora', '75'), (NULL, 'Paletizador', '75'), (NULL, 'Surface', '75');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Rodillera salida', '76'), (NULL, 'Rodillera emergencia', '76'), (NULL, 'Transporte', '76'), (NULL, 'Curva', '76'), (NULL, 'Cera', '76'), (NULL, 'Impresora', '76'), (NULL, 'Apilador', '76'), (NULL, 'Encajadora', '76'), (NULL, 'Cola', '76'), (NULL, 'Flejadora', '76'), (NULL, 'Paletizador', '76'), (NULL, 'Surface', '76');
+
+
+// Parque BOX
+
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Box', '26'), (NULL, 'Transfers', '26'), (NULL, 'LGV', '26'), (NULL, 'Gestión Parque', '26'), (NULL, 'Secadero', '26');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Box', '56'), (NULL, 'Transfers', '56'), (NULL, 'LGV', '56'), (NULL, 'Gestión Parque', '56'), (NULL, 'Secadero', '56');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Box', '77'), (NULL, 'Transfers', '77'), (NULL, 'LGV', '77'), (NULL, 'Gestión Parque', '77'), (NULL, 'Secadero', '77');
+
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Flej. Horizontal', '58'), (NULL, 'Flej. Vertical', '58'), (NULL, 'Encapuchonadora', '58'), (NULL, 'Horno', '58'), (NULL, 'Rodillera', '58'), (NULL, 'Otros', '58'), (NULL, 'Muelle carga', '58'), (NULL, 'Muestras', '58'), (NULL, 'Cortadoras', '58');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Flej. Horizontal', '79'), (NULL, 'Flej. Vertical', '79'), (NULL, 'Encapuchonadora', '79'), (NULL, 'Horno', '79'), (NULL, 'Rodillera', '79'), (NULL, 'Otros', '79'), (NULL, 'Muelle carga', '79'), (NULL, 'Muestras', '79'), (NULL, 'Cortadoras', '79');
+
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Cocio Esmal.', '59'), (NULL, 'Bomba vert. 0.5Cv', '59'), (NULL, 'Bomba vert. 1Cv', '59'), (NULL, 'Transpaleta', '59'), (NULL, 'Tamiz', '59'), (NULL, 'Mot. Tracción', '59'), (NULL, 'Cuadro Elec.', '59'), (NULL, 'I+D', '59');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Cocio Esmal.', '80'), (NULL, 'Bomba vert. 0.5Cv', '80'), (NULL, 'Bomba vert. 1Cv', '80'), (NULL, 'Transpaleta', '80'), (NULL, 'Tamiz', '80'), (NULL, 'Mot. Tracción', '80'), (NULL, 'Cuadro Elec.', '80'), (NULL, 'I+D', '80');
+
+
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Otro', '60'), (NULL, 'Tiestos', '60'), (NULL, 'Vallado', '60'), (NULL, 'Ilum. Interior', '60'), (NULL, 'Ilum Ext.', '60'), (NULL, 'Diseño', '60'), (NULL, 'Comedor', '60'), (NULL, 'Vestuarios', '60'), (NULL, 'Baños', '60'), (NULL, 'Campa', '60'), (NULL, 'Oficinas', '60'), (NULL, 'Exposición', '60'), (NULL, 'Recepción', '60');
+INSERT INTO`machines`(`id`, `name`, `numberId`) VALUES(NULL, 'Otro', '81'), (NULL, 'Tiestos', '81'), (NULL, 'Vallado', '81'), (NULL, 'Ilum. Interior', '81'), (NULL, 'Ilum Ext.', '81'), (NULL, 'Diseño', '81'), (NULL, 'Comedor', '81'), (NULL, 'Vestuarios', '81'), (NULL, 'Baños', '81'), (NULL, 'Campa', '81'), (NULL, 'Oficinas', '81'), (NULL, 'Exposición', '81'), (NULL, 'Recepción', '81');
