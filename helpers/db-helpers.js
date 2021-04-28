@@ -106,8 +106,6 @@ const addNewProperties = async (events, type) => {
 						};
 					}
 
-				default:
-					return [];
 			}
 		})
 	);
