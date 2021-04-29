@@ -1,4 +1,5 @@
 const { Event_Operations, Event_Clocks, Event_Items } = require("../models/event.models");
+const User = require("../models/user.models");
 
 // Fetch events_operations by eventId
 const getOperationsById = async (id) => {
@@ -113,6 +114,27 @@ const addNewProperties = async (events, type) => {
 	return newEvents;
 };
 
+const userIdExists = async (id = '') => {
+
+	const user = await User.findByPk(id);
+
+	if (!user) {
+		throw new Error(`The user with the id ${id} doesn't exists`);
+	}
+}
+
+const userEmailExists = async (email = '') => {
+
+	const user = await User.findOne({ where: { email } });
+
+	if (user) {
+		throw new Error(`The user with the email ${id} already exists`);
+	}
+}
+
+
 module.exports = {
 	addPropertiesToEvents,
+	userIdExists,
+	userEmailExists
 };

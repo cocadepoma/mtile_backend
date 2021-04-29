@@ -12,9 +12,9 @@ const getFactories = async (req, res = response) => {
             factories
         });
     } catch (error) {
-        console.log(error)
-        res.status(500).json({
-            msg: 'Error al conectar con BBDD, contacto con el administrador'
+        console.log(error);
+        res.status(500).status({
+            msg: 'Error, contact with the administrator'
         });
     }
 
@@ -30,9 +30,9 @@ const getSections = async (req, res = response) => {
             sections
         });
     } catch (error) {
-        console.log(error)
-        res.status(500).json({
-            msg: 'Error al conectar con BBDD, contacto con el administrador'
+        console.log(error);
+        res.status(500).status({
+            msg: 'Error, contact with the administrator'
         });
     }
 
@@ -47,9 +47,9 @@ const getNumbers = async (req, res = response) => {
             numbers
         });
     } catch (error) {
-        console.log(error)
-        res.status(500).json({
-            msg: 'Error al conectar con BBDD, contacto con el administrador'
+        console.log(error);
+        res.status(500).status({
+            msg: 'Error, contact with the administrator'
         });
     }
 }
@@ -63,9 +63,9 @@ const getMachines = async (req, res = response) => {
             machines
         });
     } catch (error) {
-        console.log(error)
-        res.status(500).json({
-            msg: 'Error al conectar con BBDD, contacto con el administrador'
+        console.log(error);
+        res.status(500).status({
+            msg: 'Error, contact with the administrator'
         });
     }
 }
@@ -79,9 +79,9 @@ const getDocs = async (req, res = response) => {
             docs
         });
     } catch (error) {
-        console.log(error)
-        res.status(500).json({
-            msg: 'Error al conectar con BBDD, contacto con el administrador'
+        console.log(error);
+        res.status(500).status({
+            msg: 'Error, contact with the administrator'
         });
     }
 }

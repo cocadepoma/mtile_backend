@@ -3,6 +3,9 @@ const cors = require('cors');
 const db = require('../db/connection');
 const factoryRoutes = require('../routes/factory');
 const eventRoutes = require('../routes/event');
+const crewRoutes = require('../routes/crew');
+const warehouseRoutes = require('../routes/warehouse');
+const userRoutes = require('../routes/user');
 
 class Server {
 
@@ -12,10 +15,11 @@ class Server {
         this.apiPaths = {
             auth: '/api/auth',
             events: '/api/events',
-            technicians: '/api/technicians',
+            crew: '/api/crew',
             warehouse: '/api/warehouse',
             warnings: '/api/warnings',
             factory: '/api/factory',
+            users: '/api/users',
         }
 
         // Initial Methods
@@ -48,6 +52,9 @@ class Server {
         //this.app.use(this.apiPaths.usuarios, userRoutes);
         this.app.use(this.apiPaths.factory, factoryRoutes);
         this.app.use(this.apiPaths.events, eventRoutes);
+        this.app.use(this.apiPaths.crew, crewRoutes);
+        this.app.use(this.apiPaths.warehouse, warehouseRoutes);
+        this.app.use(this.apiPaths.users, userRoutes);
     }
 
     listen() {

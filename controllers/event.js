@@ -5,6 +5,7 @@ const { addPropertiesToEvents } = require("../helpers/db-helpers");
 
 // ENDPOINT /api/events/events
 const getEvents = async (req, res = response) => {
+
 	try {
 		const events = await Event.findAll({
 			raw: true,
@@ -20,8 +21,8 @@ const getEvents = async (req, res = response) => {
 		});
 	} catch (error) {
 		console.log(error);
-		res.status(500).json({
-			msg: "Error, hable con el administrador",
+		res.status(500).status({
+			msg: 'Error, contact with the administrator'
 		});
 	}
 };
