@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
 const db = require("../db/connection");
 
-const Items = db.define("items", {
+const Item = db.define("item", {
 
     code: {
         type: DataTypes.STRING
@@ -18,9 +18,12 @@ const Items = db.define("items", {
     place: {
         type: DataTypes.STRING
     },
+    active: {
+        type: DataTypes.BOOLEAN
+    }
 
 });
 
 module.exports = {
-    Items
+    Item
 }

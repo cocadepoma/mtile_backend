@@ -1,6 +1,67 @@
 const { response } = require("express");
 const User = require("../models/user.models");
 const bcrypt = require('bcrypt');
+const { generateJWT } = require("../helpers/generate_jwt");
+
+const loginUser = async (req, res = response) => {
+
+    const {
+        email,
+        password
+    } = req.body;
+
+    try {
+        const user = await User.findOne({
+            email
+        });
+
+        // Check if the password is correct
+        const validPassword = bcrypt.compareSync(password, user.password);
+
+        if (!validPassword) {
+            return res.status(400).json({
+                ok: false,
+                msg: "Password incorrecto",
+            });
+        }
+
+        // Generate Json Web Token JWT
+        const token = await generateJWT(user.id, user.name);
+
+        res.json({
+            ok: true,
+            uid: user.id,
+            name: user.name,
+            token: token,
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            ok: false,
+            msg: "Por favor hable con el administrador",
+        });
+    }
+}
+
+const renewToken = async (req, res = response) => {
+
+    const {
+        uid,
+        name
+    } = req;
+
+    // Generar Json Web Token JWT
+    const token = await generateJWT(uid, name);
+
+    res.json({
+        ok: true,
+        uid,
+        name,
+        token
+    });
+
+};
+
 
 const getUsers = async (req, res = response) => {
 
@@ -147,8 +208,10 @@ const deleteUser = async (req, res = response) => {
 
 
 module.exports = {
+    loginUser,
+    renewToken,
     getUsers,
     addUser,
     updateUser,
-    deleteUser
+    deleteUser,
 }

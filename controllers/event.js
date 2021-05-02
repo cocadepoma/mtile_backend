@@ -1,7 +1,7 @@
 const { response } = require("express");
 const { Event, Type, Breakdown } = require("../models/event.models");
 
-const { addPropertiesToEvents } = require("../helpers/db-helpers");
+const { addPropertiesToEvents } = require("../helpers/db_helpers");
 
 // ENDPOINT /api/events/events
 const getEvents = async (req, res = response) => {
@@ -12,6 +12,7 @@ const getEvents = async (req, res = response) => {
 			attributes: {
 				exclude: ["createdAt", "updatedAt"],
 			},
+			order: [['start', 'DESC']]
 		});
 
 		const eventsWithData = await addPropertiesToEvents(events);

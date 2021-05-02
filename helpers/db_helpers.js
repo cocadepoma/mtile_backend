@@ -114,27 +114,6 @@ const addNewProperties = async (events, type) => {
 	return newEvents;
 };
 
-const userIdExists = async (id = '') => {
-
-	const user = await User.findByPk(id);
-
-	if (!user) {
-		throw new Error(`The user with the id ${id} doesn't exists`);
-	}
-}
-
-const userEmailExists = async (email = '') => {
-
-	const user = await User.findOne({ where: { email } });
-
-	if (user) {
-		throw new Error(`The user with the email ${id} already exists`);
-	}
-}
-
-
 module.exports = {
 	addPropertiesToEvents,
-	userIdExists,
-	userEmailExists
 };

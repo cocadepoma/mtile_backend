@@ -1,11 +1,16 @@
 const express = require('express');
 const cors = require('cors');
+const fileUpload = require('express-fileupload');
+
 const db = require('../db/connection');
+
 const factoryRoutes = require('../routes/factory');
 const eventRoutes = require('../routes/event');
 const crewRoutes = require('../routes/crew');
 const warehouseRoutes = require('../routes/warehouse');
 const userRoutes = require('../routes/user');
+const warningRoutes = require('../routes/warning');
+const uploadRoutes = require('../routes/upload');
 
 class Server {
 
@@ -20,6 +25,7 @@ class Server {
             warnings: '/api/warnings',
             factory: '/api/factory',
             users: '/api/users',
+            uploads: '/api/uploads',
         }
 
         // Initial Methods
@@ -33,7 +39,7 @@ class Server {
             await db.authenticate();
             console.log('Database Initialized');
         } catch (error) {
-            throw new Error(error);
+            throw new Error(error, 'Error al conectar DB');
         }
     }
 
@@ -46,6 +52,13 @@ class Server {
 
         // Share public folder
         this.app.use(express.static('public'));
+
+        // File Uploader
+        this.app.use(fileUpload({
+            useTempFiles: true,
+            tempFileDir: '/tmp/',
+            createParentPath: true // Creará el dir destino si no existe
+        }));
     }
 
     routes() {
@@ -55,6 +68,8 @@ class Server {
         this.app.use(this.apiPaths.crew, crewRoutes);
         this.app.use(this.apiPaths.warehouse, warehouseRoutes);
         this.app.use(this.apiPaths.users, userRoutes);
+        this.app.use(this.apiPaths.warnings, warningRoutes);
+        this.app.use(this.apiPaths.uploads, uploadRoutes);
     }
 
     listen() {
