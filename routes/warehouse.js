@@ -3,7 +3,8 @@ const {
     getItems,
     addItem,
     updateItem,
-    deleteItem } = require('../controllers/warehouse.controller');
+    deleteItem,
+    subtractItem } = require('../controllers/warehouse.controller');
 const { check } = require('express-validator');
 const { validatorJWT } = require('../middlewares/jwt_validator');
 const { checkFields } = require('../middlewares/check_fields');
@@ -37,6 +38,11 @@ router.put('/:id', [
     checkFields
 ], updateItem);
 
+router.put('/subtract/:id', [
+    validatorJWT,
+    check('quantity', 'The quantity field is required').not().isEmpty(),
+    checkFields
+], subtractItem);
 
 router.delete('/:id', [
     validatorJWT,
