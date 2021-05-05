@@ -11,6 +11,7 @@ const warehouseRoutes = require('../routes/warehouse');
 const userRoutes = require('../routes/user');
 const warningRoutes = require('../routes/warning');
 const uploadRoutes = require('../routes/upload');
+const statisticsRoutes = require('../routes/statistics');
 
 class Server {
 
@@ -26,6 +27,7 @@ class Server {
             factory: '/api/factory',
             users: '/api/users',
             uploads: '/api/uploads',
+            statistics: '/api/statistics',
         }
 
         // Initial Methods
@@ -70,6 +72,7 @@ class Server {
         this.app.use(this.apiPaths.users, userRoutes);
         this.app.use(this.apiPaths.warnings, warningRoutes);
         this.app.use(this.apiPaths.uploads, uploadRoutes);
+        this.app.use(this.apiPaths.statistics, statisticsRoutes);
     }
 
     listen() {
