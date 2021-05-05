@@ -33,7 +33,7 @@ const addWarning = async (req, res = response) => {
 
         const { description } = req.body;
 
-        const { updatedAt, createdAt, ...warning } = await Warning.create({ description });
+        const warning = await Warning.create({ description });
 
         res.status(201).json({
             warning

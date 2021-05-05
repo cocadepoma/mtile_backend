@@ -12,7 +12,9 @@ const loginUser = async (req, res = response) => {
 
     try {
         const user = await User.findOne({
-            email
+            where: {
+                email
+            }
         });
 
         // Check if the password is correct
@@ -57,7 +59,7 @@ const renewToken = async (req, res = response) => {
         ok: true,
         uid,
         name,
-        token
+        token,
     });
 
 };

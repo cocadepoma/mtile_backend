@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
-const { getWarnings, addWarning, deleteWarning } = require('../controllers/warning');
+const { getWarnings, addWarning, deleteWarning } = require('../controllers/warning.controller');
 const { validatorJWT } = require('../middlewares/jwt_validator');
 const { checkFields } = require('../middlewares/check_fields');
 
@@ -14,9 +14,9 @@ router.get('/', [
 
 // Add a new warning
 router.post('/', [
+    validatorJWT,
     check('description', 'Description field is required').not().isEmpty(),
     check('description', 'Description field must be at least 10 characters long').isLength({ min: 10 }),
-    validatorJWT,
     checkFields
 ], addWarning);
 

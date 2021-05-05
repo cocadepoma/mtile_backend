@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize");
 const db = require("../db/connection");
 
 
-const Technicians = db.define("technicians", {
+const Technician = db.define("technicians", {
 
     name: {
         type: DataTypes.STRING
@@ -40,9 +40,12 @@ const Technicians = db.define("technicians", {
     factory: {
         type: DataTypes.INTEGER
     },
+    active: {
+        type: DataTypes.BOOLEAN
+    }
 
 });
 
 module.exports = {
-    Technicians
+    Technician
 }

@@ -44,6 +44,9 @@ const Event = db.define("event", {
     confirmed: {
         type: DataTypes.TINYINT,
     },
+    active: {
+        type: DataTypes.TINYINT,
+    },
     start: {
         type: DataTypes.DATE,
     },
@@ -69,7 +72,7 @@ const Event_Operations = db.define("events_operations", {
         type: DataTypes.INTEGER,
     },
     time: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.FLOAT,
     },
     operation: {
         type: DataTypes.STRING,
@@ -83,6 +86,9 @@ const Event_Clocks = db.define("events_clocks", {
     userId: {
         type: DataTypes.INTEGER,
     },
+    user: {
+        type: DataTypes.STRING,
+    },
     start: {
         type: DataTypes.DATE,
     },
@@ -95,11 +101,14 @@ const Event_Items = db.define("events_items", {
     eventId: {
         type: DataTypes.INTEGER,
     },
-    itemId: {
-        type: DataTypes.INTEGER,
+    code: {
+        type: DataTypes.STRING,
+    },
+    description: {
+        type: DataTypes.STRING,
     },
     quantity: {
-        type: DataTypes.DATE,
+        type: DataTypes.INTEGER,
     },
 });
 

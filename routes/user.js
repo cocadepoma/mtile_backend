@@ -1,5 +1,11 @@
 const { Router } = require('express');
-const { loginUser, renewToken, getUsers, addUser, updateUser, deleteUser } = require('../controllers/user');
+const {
+    loginUser,
+    renewToken,
+    getUsers,
+    addUser,
+    updateUser,
+    deleteUser } = require('../controllers/user.controller');
 const { check } = require('express-validator');
 const { checkFields } = require('../middlewares/check_fields');
 
@@ -20,7 +26,6 @@ router.post("/", [
 
 // Renew Token
 router.get("/renew", validatorJWT, renewToken);
-
 
 
 // Get all the registered users

@@ -1,5 +1,5 @@
 const { Event_Operations, Event_Clocks, Event_Items } = require("../models/event.models");
-const User = require("../models/user.models");
+
 
 // Fetch events_operations by eventId
 const getOperationsById = async (id) => {

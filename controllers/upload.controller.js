@@ -81,9 +81,11 @@ const deleteDoc = async (req, res = response) => {
 
 const uploadImageTechnician = async (req, res = response) => {
 
-    res.json({
-        msg: 'upload technician image'
-    })
+    const name = await uploadFile(req.files, undefined, 'images');
+
+    res.status(201).json({
+        name
+    });
 }
 
 module.exports = {
