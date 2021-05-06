@@ -149,7 +149,6 @@ const addEventOperation = async (req, res = response) => {
 
 	try {
 
-		console.log({ id, time, operation })
 		const event_operation = await Event_Operations.create(
 			{ eventId: id, time, operation });
 
