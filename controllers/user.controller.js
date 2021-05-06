@@ -88,6 +88,42 @@ const getUsers = async (req, res = response) => {
 
 }
 
+const getUserById = async (req, res = response) => {
+
+    try {
+        const { id } = req.params;
+
+        if (!id) {
+            return res.status(404).json({
+                msg: `Forgot to send the user id`
+            });
+        }
+
+        const user = await User.findByPk(id, {
+            attributes: {
+                exclude: ['createdAt', 'updatedAt', 'password', 'id', 'active']
+            }
+        });
+
+        if (!user) {
+            return res.status(404).json({
+                msg: `User with the ID ${id} not found`
+            });
+        }
+
+        res.status(200).json({
+            user
+        });
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).status({
+            msg: 'Error, contact with the administrator'
+        });
+    }
+
+}
+
 const addUser = async (req, res = response) => {
 
     const { name, email, password: passwordReq } = req.body;
@@ -130,7 +166,7 @@ const addUser = async (req, res = response) => {
 const updateUser = async (req, res = response) => {
 
     const { id } = req.params;
-    const { name, email, password: passwordReq } = req.body;
+    const { name, email, password: passwordReq, active } = req.body;
 
     if (!id) {
         return res.status(400).json({
@@ -157,7 +193,8 @@ const updateUser = async (req, res = response) => {
         const user = await User.update({
             name,
             email,
-            password
+            password,
+            active
         },
             {
                 where: {
@@ -213,6 +250,7 @@ module.exports = {
     loginUser,
     renewToken,
     getUsers,
+    getUserById,
     addUser,
     updateUser,
     deleteUser,

@@ -3,6 +3,7 @@ const {
     loginUser,
     renewToken,
     getUsers,
+    getUserById,
     addUser,
     updateUser,
     deleteUser } = require('../controllers/user.controller');
@@ -34,6 +35,11 @@ router.get('/', [
     checkFields
 ], getUsers);
 
+// Get User by ID
+router.get('/:id', [
+    validatorJWT,
+], getUserById);
+
 
 // Create a new user
 router.post('/new', [
@@ -52,7 +58,6 @@ router.put('/:id', [
     check('id', 'The id must be provided').not().isEmpty(),
     userIdExists,
     check('name', 'The name is required').not().isEmpty(),
-    check('email', 'The email is required').not().isEmpty(),
     check('email', 'The email must be a valid email address').isEmail(),
     check('password', 'The password is required').not().isEmpty(),
     checkFields
