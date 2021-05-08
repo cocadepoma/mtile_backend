@@ -2,6 +2,7 @@ const { response } = require("express");
 const User = require("../models/user.models");
 const bcrypt = require('bcrypt');
 const { generateJWT } = require("../helpers/generate_jwt");
+const { Op } = require("sequelize");
 
 const loginUser = async (req, res = response) => {
 
@@ -13,10 +14,16 @@ const loginUser = async (req, res = response) => {
     try {
         const user = await User.findOne({
             where: {
-                email
+                email,
+                active: true
             }
         });
 
+        if (!user) {
+            return res.status(401).json({
+                msg: 'User not allowed to login'
+            });
+        }
         // Check if the password is correct
         const validPassword = bcrypt.compareSync(password, user.password);
 
@@ -34,6 +41,7 @@ const loginUser = async (req, res = response) => {
             ok: true,
             uid: user.id,
             name: user.name,
+            admin: user.admin,
             token: token,
         });
 
@@ -126,7 +134,7 @@ const getUserById = async (req, res = response) => {
 
 const addUser = async (req, res = response) => {
 
-    const { name, email, password: passwordReq } = req.body;
+    const { name, email, password: passwordReq, admin } = req.body;
 
     if (name.length < 4) {
         return res.status(400).json({
@@ -144,15 +152,20 @@ const addUser = async (req, res = response) => {
 
         const salt = bcrypt.genSaltSync();
         const password = await bcrypt.hash(passwordReq, salt);
+        const active = true;
 
         const user = await User.create({
             name,
             email,
-            password
+            password,
+            admin,
+            active
         });
 
         res.status(201).json({
             user,
+            ok: true,
+            msg: 'User created successfully'
         });
 
     } catch (error) {
@@ -166,7 +179,7 @@ const addUser = async (req, res = response) => {
 const updateUser = async (req, res = response) => {
 
     const { id } = req.params;
-    const { name, email, password: passwordReq, active } = req.body;
+    const { name, email, password: passwordReq, active, admin } = req.body;
 
     if (!id) {
         return res.status(400).json({
@@ -190,17 +203,35 @@ const updateUser = async (req, res = response) => {
         const salt = bcrypt.genSaltSync();
         const password = await bcrypt.hash(passwordReq, salt);
 
-        const user = await User.update({
+        const isMasterAdmin = User.findByPk(id);
+        const { email: adminEmail } = (await isMasterAdmin).toJSON();
+
+        if (adminEmail && adminEmail === 'superadmin@mtile.org') {
+            return res.status(401).json({
+                msg: 'Cannot update a master account'
+            });
+        }
+
+        await User.update({
             name,
             email,
             password,
-            active
+            active,
+            admin
         },
             {
                 where: {
                     id
                 }
             });
+
+        const user = await User.findByPk(id,
+            {
+                attributes: {
+                    exclude: ['createdAt', 'updatedAt', 'password']
+                }
+            }
+        );
 
         res.status(200).json({
             user,
@@ -226,10 +257,32 @@ const deleteUser = async (req, res = response) => {
     }
 
     try {
-        const user = await User.update(
+
+        const userDB = await User.findByPk(id);
+        const { active: isActive } = userDB.toJSON();
+        let active = !isActive;
+
+        const isMasterAdmin = await User.findByPk(id);
+        const { email: adminEmail } = isMasterAdmin.toJSON();
+
+        if (adminEmail && adminEmail === 'superadmin@mtile.org') {
+            return res.status(401).json({
+                msg: 'The acount of master cannot be disabled'
+            });
+        }
+
+        await User.update(
             {
-                active: false
+                active
             }, { where: { id } });
+
+        const user = await User.findByPk(id,
+            {
+                attributes: {
+                    exclude: ['createdAt', 'updatedAt', 'password']
+                }
+            }
+        );
 
         res.status(200).json({
             user,
@@ -241,7 +294,6 @@ const deleteUser = async (req, res = response) => {
             msg: 'Error, contact with the administrator'
         });
     }
-
 }
 
 

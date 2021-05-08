@@ -7,8 +7,8 @@ const getItems = async (req, res = response) => {
     try {
         const items = await Item.findAll({
             attributes: {
-                exclude: ['createdAt', 'updatedAt']
-            }
+                exclude: ['createdAt', 'updatedAt'],
+            }, where: { active: true }
         });
 
         res.json({

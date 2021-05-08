@@ -28,7 +28,6 @@ const getTechnicians = async (req, res = response) => {
     }
 }
 
-
 const addTechnician = async (req, res = response) => {
 
     try {
@@ -62,6 +61,7 @@ const addTechnician = async (req, res = response) => {
     }
 
 }
+
 const updateTechnician = async (req, res = response) => {
 
     try {

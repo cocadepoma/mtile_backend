@@ -21,7 +21,8 @@ const getEvents = async (req, res = response) => {
 			attributes: {
 				exclude: ["createdAt", "updatedAt"],
 			},
-			order: [['start', 'DESC']]
+			order: [['start', 'DESC']],
+			where: { active: true }
 		});
 
 		const eventsWithData = await addPropertiesToEvents(events);
@@ -84,7 +85,6 @@ const updateEvent = async (req, res = response) => {
 		end,
 		startFix,
 		endFix,
-		confirmed
 	} = req.body;
 
 	try {
@@ -124,13 +124,15 @@ const removeEvent = async (req, res = response) => {
 	try {
 		const { id } = req.params;
 
-		const event = await Event.update(
+		await Event.update(
 			{
 				active: false
 			}, { where: { id } });
 
+		const event = await Event.findByPk(id);
+
 		res.json({
-			event
+			active: event.dataValues.active
 		});
 
 	} catch (error) {
