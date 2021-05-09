@@ -2,7 +2,7 @@ const { response } = require("express");
 const User = require("../models/user.models");
 const bcrypt = require('bcrypt');
 const { generateJWT } = require("../helpers/generate_jwt");
-const { Op } = require("sequelize");
+
 
 const loginUser = async (req, res = response) => {
 
@@ -60,6 +60,17 @@ const renewToken = async (req, res = response) => {
         name
     } = req;
 
+    const user = await User.findByPk(uid, {
+        attributes: {
+            exclude: ['createdAt', 'updatedAt', 'password', 'id', 'active']
+        }
+    });
+
+    let admin = false;
+
+    if (user) {
+        admin = user.toJSON().admin;
+    }
     // Generar Json Web Token JWT
     const token = await generateJWT(uid, name);
 
@@ -68,6 +79,7 @@ const renewToken = async (req, res = response) => {
         uid,
         name,
         token,
+        admin
     });
 
 };
