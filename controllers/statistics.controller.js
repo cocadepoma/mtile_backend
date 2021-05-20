@@ -6,10 +6,10 @@ const db = require("../db/connection");
 
 const getStatistics = async (req, res = response) => {
 
-    const [one] = await db.query('SELECT count(types.name) as "total", types.name FROM `events` INNER JOIN `types` ON types.id = events.orderType WHERE events.start >= DATE_SUB(NOW(), INTERVAL 7 DAY) AND events.start <= NOW() GROUP BY types.name');
-    const [two] = await db.query('SELECT count(events.id) as "total", sections.name, WEEKOFYEAR(events.start) AS "week" FROM `events` INNER JOIN `sections` ON sections.id = events.section WHERE events.start >= DATE_SUB(NOW(), INTERVAL 22 DAY) AND events.start <= NOW() GROUP BY sections.name, WEEKOFYEAR(events.start) ORDER BY WEEKOFYEAR(events.start) ASC');
-    // const [weeks] = await db.query('SELECT WEEKOFYEAR(events.start) AS "week" FROM events INNER JOIN sections ON sections.id = events.section WHERE events.start >= DATE_SUB(NOW(), INTERVAL 22 DAY) AND events.start <= NOW() GROUP BY WEEKOFYEAR(events.start) ORDER BY WEEKOFYEAR(events.start) ASC');
-    // const [almacen] = await db.query('SELECT count(events.id) as "total", sections.name, WEEKOFYEAR(events.start) AS "week" FROM `events` INNER JOIN `sections` ON sections.id = events.section WHERE events.start >= DATE_SUB(NOW(), INTERVAL 22 DAY) AND events.start <= NOW() AND sections.name = "Almacén" GROUP BY "total", WEEKOFYEAR(events.start) ORDER BY WEEKOFYEAR(events.start) ASC');
+    /* TOTAL TIPO DE ORDEN, ÚLTIMOS 7 DÍAS' */
+    const [one] = await db.query('SELECT count(types.name) as "total", types.name FROM `events` INNER JOIN `types` ON types.id = events.orderType WHERE events.start >= DATE_SUB(NOW(), INTERVAL 7 DAY) AND events.start <= NOW() AND events.active = 1 GROUP BY types.name');
+    /* INTERVENCIONES POR SECCIÓNES Y SEMANAS, 22 ÚLTIMOS DÍAS*/
+    const [two] = await db.query('SELECT count(events.id) as "total", sections.name, WEEKOFYEAR(events.start) AS "week" FROM `events` INNER JOIN `sections` ON sections.id = events.section WHERE events.start >= DATE_SUB(NOW(), INTERVAL 22 DAY) AND events.start <= NOW() GROUP BY sections.name, WEEKOFYEAR(events.start) AND events.active = 1 ORDER BY WEEKOFYEAR(events.start) ASC');
 
 
     res.status(200).json({
@@ -21,7 +21,7 @@ const getStatistics = async (req, res = response) => {
 const getLastWeekByOrderType = async (req, res = response) => {
 
     try {
-        const [orderTypeWeeks] = await db.query('SELECT count(types.name) as "total", types.name FROM `events` INNER JOIN `types` ON types.id = events.orderType WHERE events.start >= DATE_SUB(NOW(), INTERVAL 7 DAY) AND events.start <= NOW() GROUP BY types.name');
+        const [orderTypeWeeks] = await db.query('SELECT count(types.name) as "total", types.name FROM `events` INNER JOIN `types` ON types.id = events.orderType WHERE events.start >= DATE_SUB(NOW(), INTERVAL 7 DAY) AND events.start <= NOW() AND events.active = 1 GROUP BY types.name');
 
         if (!orderTypeWeeks) {
             return res.status(404).json({
@@ -45,7 +45,7 @@ const getLastWeekByOrderType = async (req, res = response) => {
 const getWeeks = async (req, res = response) => {
 
     try {
-        const [weeks] = await db.query('SELECT WEEKOFYEAR(events.start) AS "week" FROM events INNER JOIN sections ON sections.id = events.section WHERE events.start >= DATE_SUB(NOW(), INTERVAL 20 DAY) AND events.start <= NOW() GROUP BY WEEKOFYEAR(events.start) ORDER BY WEEKOFYEAR(events.start) ASC');
+        const [weeks] = await db.query('SELECT WEEKOFYEAR(events.start) AS "week" FROM events INNER JOIN sections ON sections.id = events.section WHERE events.start >= DATE_SUB(NOW(), INTERVAL 22 DAY) AND events.start <= NOW() AND events.active = 1 GROUP BY WEEKOFYEAR(events.start) ORDER BY WEEKOFYEAR(events.start) ASC');
 
 
         if (!weeks) {
@@ -72,7 +72,7 @@ const getStatisticsBySectionWeek = async (req, res = response) => {
         const { week } = req.params || 1;
         const { section } = req.body;
 
-        const [data] = await db.query(`SELECT COUNT(*) as "total" FROM events INNER JOIN sections ON sections.id = events.section WHERE WEEK(events.start) = ${parseInt(week)} AND sections.name = '${section}' GROUP BY WEEK(events.start) ORDER BY WEEK(events.start) ASC`);
+        const [data] = await db.query(`SELECT COUNT(*) as "total" FROM events INNER JOIN sections ON sections.id = events.section WHERE WEEK(events.start) = ${parseInt(week)} AND sections.name = '${section}' AND events.active = 1 GROUP BY WEEK(events.start) ORDER BY WEEK(events.start) ASC`);
 
         if (!data) {
             return res.status(404).json({
@@ -96,7 +96,7 @@ const getStatisticsBySectionWeek = async (req, res = response) => {
 const getIntervencionsWeeks = async (req, res = response) => {
 
     try {
-        const [interventionsWeeks] = await db.query('SELECT WEEK(events.start) AS "week", COUNT(*) AS "count" FROM `events` WHERE events.start >= DATE_SUB(NOW(), INTERVAL 22 DAY) AND events.start <= NOW() GROUP BY WEEK(events.start) ORDER BY WEEK(events.start) ASC');
+        const [interventionsWeeks] = await db.query('SELECT WEEK(events.start) AS "week", COUNT(*) AS "count" FROM `events` WHERE events.start >= DATE_SUB(NOW(), INTERVAL 22 DAY) AND events.start <= NOW() AND events.active = 1 GROUP BY WEEK(events.start) ORDER BY WEEK(events.start) ASC');
 
         if (!interventionsWeeks) {
             return res.status(404).json({
@@ -119,7 +119,7 @@ const getIntervencionsWeeks = async (req, res = response) => {
 const getTotalTimeByWeek = async (req, res = response) => {
 
     try {
-        const [totalTimeWeeks] = await db.query('SELECT WEEK(events.start) AS "week", SUM(events.totalMins) AS "totalMins" FROM `events` WHERE events.start >= DATE_SUB(NOW(), INTERVAL 22 DAY) AND events.start <= NOW() GROUP BY WEEK(events.start) ORDER BY WEEK(events.start) ASC');
+        const [totalTimeWeeks] = await db.query('SELECT WEEK(events.start) AS "week", SUM(events.totalMins) AS "totalMins" FROM `events` WHERE events.start >= DATE_SUB(NOW(), INTERVAL 22 DAY) AND events.start <= NOW() AND events.active = 1 GROUP BY WEEK(events.start) ORDER BY WEEK(events.start) ASC');
 
 
         if (!totalTimeWeeks) {
@@ -143,7 +143,7 @@ const getTotalTimeByWeek = async (req, res = response) => {
 const getLastWeekByBreakdown = async (req, res = response) => {
 
     try {
-        const [breakdownWeeks] = await db.query('SELECT count(*) as "total", breakdowns.name FROM `events` INNER JOIN `breakdowns` ON breakdowns.id = events.breakdown WHERE events.start >= DATE_SUB(NOW(), INTERVAL 7 DAY) AND events.start <= NOW() GROUP BY breakdowns.name');
+        const [breakdownWeeks] = await db.query('SELECT count(*) as "total", breakdowns.name FROM `events` INNER JOIN `breakdowns` ON breakdowns.id = events.breakdown WHERE events.start >= DATE_SUB(NOW(), INTERVAL 7 DAY) AND events.start <= NOW() AND events.active = 1 GROUP BY breakdowns.name');
 
         if (!breakdownWeeks) {
             return res.status(404).json({
@@ -166,7 +166,7 @@ const getLastWeekByBreakdown = async (req, res = response) => {
 const getLastWeekByTechnician = async (req, res = response) => {
 
     try {
-        const [techniciansWeeks] = await db.query('SELECT count(*) as "total", technicians.name FROM `events` INNER JOIN `technicians` ON technicians.id = events.technician WHERE events.start >= DATE_SUB(NOW(), INTERVAL 7 DAY) AND events.start <= NOW() GROUP BY technicians.name');
+        const [techniciansWeeks] = await db.query('SELECT count(*) as "total", technicians.name FROM `events` INNER JOIN `technicians` ON technicians.id = events.technician WHERE events.start >= DATE_SUB(NOW(), INTERVAL 7 DAY) AND events.start <= NOW() AND events.active = 1 GROUP BY technicians.name');
 
         if (!techniciansWeeks) {
             return res.status(404).json({
